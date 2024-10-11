@@ -4,7 +4,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters, JobQueue, CallbackQueryHandler
 
 # Token de acesso do bot
-TOKEN = '7732820443:AAHQ8RwTdW2z6zIrdvn6BnsyQtZJHXq2JGM'  # Substitua pelo seu token
+TOKEN = 'seu token aqui'  # Substitua pelo seu token
 
 DATABASE = 'usuarios.db'  # Nome do arquivo do banco de dados
 
@@ -66,7 +66,7 @@ Clique no botão abaixo e se cadastra-se na BR4BET, Casa de Aposta brasileira qu
 
     # Cria o botão
     keyboard = [
-        [InlineKeyboardButton("CADASTRE-SE AQUI", url="https://go.aff.br4-partners.com/f3ppq5b5?utm_campaign=Bot-Tel1")]
+        [InlineKeyboardButton("CADASTRE-SE AQUI", url="#link do seu bot aqui")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -81,7 +81,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
         [
             InlineKeyboardButton("RECEBER BANCA 🎁",
-                                 url="https://t.me/+PoH4823sRsw4ZWZh"),
+                                 url="#link do seu grupo aqui"),
         ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -110,7 +110,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def enviar_mensagem_personalizada(
         update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Envia uma mensagem personalizada para todos os usuários no banco de dados."""
-    if update.effective_user.id == 6673491011 or update.effective_user.id == 5577564377:  # Substitua pelo seu ID
+    if update.effective_user.id == #id do adm1 or update.effective_user.id == #id do adm2:  # Substitua pelo seu ID
         mensagem = " ".join(context.args)
         for chat_id in obter_usuarios():
             await context.bot.send_message(chat_id=chat_id, text=mensagem)
